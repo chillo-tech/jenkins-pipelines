@@ -5,7 +5,7 @@ pipeline {
         fileName = 'file.txt'
         username = 'Achille'
         GIT_CREDENTIALS = credentials('github-chillotech-pat')
-        GIT_CREDENTIALS_ID = 'github-chillotech-pat'
+        GIT_CREDENTIALS_ID = 'github-pat'
         REPOSITORY = 'https://github.com/chillo-tech/jenkins-pipelines.git'
         BRANCH = "main"
         EMAIL =  "achille.mbougueng@chillo.tech"
@@ -27,7 +27,7 @@ pipeline {
                     $class: 'GitSCM',
                     branches: [[name: env.BRANCH]],
                     userRemoteConfigs: [[
-                        credentialsId: 'github-chillotech-pat',
+                        credentialsId: env.GIT_CREDENTIALS_ID,
                         url: env.REPOSITORY
                     ]]
                 )
