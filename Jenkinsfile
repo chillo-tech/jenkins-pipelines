@@ -1,6 +1,5 @@
 pipeline {
     agent  any
-
     environment {
         fileName = 'file.txt'
         username = 'Achille'
