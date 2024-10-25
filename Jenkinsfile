@@ -4,7 +4,7 @@ pipeline {
     environment {
         fileName = 'file.txt'
         username = 'Achille'
-        // GIT_CREDENTIALS = credentials('github')
+        GIT_CREDENTIALS = credentials('github-chillotech-pat')
         REPOSITORY = 'https://github.com/chillo-tech/jenkins-pipelines.git'
         BRANCH = "main"
         EMAIL =  "achille.mbougueng@chillo.tech"
@@ -21,9 +21,13 @@ pipeline {
     stages {
         stage ('Initialtisation') {
             steps {
-                 git url: 'https://github.com/chillo-tech/jenkins-pipelines.git',
-                    branch: 'main'
                 
+                checkout (
+                    $class: 'GitSCM',
+                    branches: [[name: 'main']],
+                    userRemoteConfigs: [[url: env.REPOSITORY]]
+                )
+
                 sh "echo 'File ${params.name}'"
                 sh "echo 'Extension ${params.extension}'"
                 sh "echo 'Content ${params.content}'"
