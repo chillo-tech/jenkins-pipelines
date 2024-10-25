@@ -53,7 +53,7 @@ pipeline {
         }
 
 
-        stage('check') {
+        stage('update remote repository') {
             steps {
                 withCredentials([gitUsernamePassword(credentialsId: 'github-chillotech-pat', gitToolName: 'Default')]) {
                     sh 'git push --set-upstream origin main'
