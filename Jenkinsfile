@@ -4,7 +4,7 @@ pipeline {
     environment {
         fileName = 'file.txt'
         username = 'Achille'
-        GIT_CREDENTIALS = credentials('github')
+        // GIT_CREDENTIALS = credentials('github')
         REPOSITORY = 'https://github.com/chillo-tech/jenkins-pipelines.git'
         BRANCH = "main"
         EMAIL =  "achille.mbougueng@chillo.tech"
