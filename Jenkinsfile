@@ -4,7 +4,8 @@ pipeline {
     environment {
         fileName = 'file.txt'
         username = 'Achille'
-        REPOSITORY = 'https://github.com/chillo-tech/landingpage.git'
+        GIT_CREDENTIALS = credentials('github')
+        REPOSITORY = 'https://github.com/chillo-tech/jenkins-pipelines.git'
         BRANCH = "main"
         EMAIL =  "achille.mbougueng@chillo.tech"
         USER_NAME = "chillo-tech"
@@ -20,6 +21,9 @@ pipeline {
     stages {
         stage ('Initialtisation') {
             steps {
+                 git url: 'https://github.com/chillo-tech/jenkins-pipelines.git',
+                    branch: 'main'
+                
                 sh "echo 'File ${params.name}'"
                 sh "echo 'Extension ${params.extension}'"
                 sh "echo 'Content ${params.content}'"
