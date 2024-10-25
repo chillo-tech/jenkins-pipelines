@@ -18,6 +18,11 @@ pipeline {
         choice(name: "extension", choices: ['txt', 'docx'])
     }
 
+    triggers {
+        cron('*/5 * * * *')
+    }
+
+
     stages {
         stage ('Initialtisation') {
             steps {
@@ -62,9 +67,17 @@ pipeline {
 
         stage('update remote repository') {
             steps {
-                withCredentials([gitUsernamePassword(credentialsId: 'github-chillotech-pat', gitToolName: 'Default')]) {
+
+                withCredentials([
+                    gitUsernamePassword(
+                        credentialsId: env.GIT_CREDENTIALS_ID, 
+                        gitToolName: 'Default'
+                        )
+                ]) {
                     sh 'git push --set-upstream origin main'
                 }
+
+                
             }
         }
     }

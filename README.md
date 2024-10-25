@@ -17,7 +17,7 @@
 - Cliquer sur **Administrer Jenkins**
 - Cliquer sur **Credentials**
 - Dans la section **Stores scoped to Jenkins** cliquer sur **system**
-- CLiquer sur **Identifiants globaux (illimité)**
+- Cliquer sur **Identifiants globaux (illimité)**
 - Cliquer sur **Add credentials**
 - Saisir les informations
     - Type **Nom d'utilisateur et mot de passe**
