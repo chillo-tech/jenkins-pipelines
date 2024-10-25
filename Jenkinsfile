@@ -36,7 +36,7 @@ pipeline {
         stage('build') {
             steps {
                 sh "echo 'Hello ${env.username}' > ${params.file}.${params.extension}"
-                sh "echo ${params.content} > ${params.name}.${params.extension}"
+                sh "echo ${params.content} >> ${params.name}.${params.extension}"
             }
         }
 
@@ -47,7 +47,7 @@ pipeline {
                     git config user.email ${env.EMAIL}
                     git config user.name ${env.USER_NAME}
                     git add .
-                    git commit -am "Fichier ${params.name}.${params.extension}"
+                    git commit -am "Fichier ${params.name}.${params.extension}" || true
                 """
             }
         }
