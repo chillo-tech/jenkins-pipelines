@@ -55,7 +55,7 @@ pipeline {
 
         stage('check') {
             steps {
-                sh 'git push'
+                sh 'git push --set-upstream origin main'
             }
         }
     }
