@@ -26,7 +26,7 @@ pipeline {
                     $class: 'GitSCM',
                     branches: [[name: env.BRANCH]],
                     userRemoteConfigs: [[
-                        credentialsId: env.GIT_CREDENTIALS_ID,
+                        credentialsId: 'github-chillotech-pat',
                         url: env.REPOSITORY
                     ]]
                 )
