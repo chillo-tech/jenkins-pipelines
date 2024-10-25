@@ -42,14 +42,12 @@ pipeline {
             when {
                 environment name: "file", value : "index"
             }
-        stage ('Create file') {
             steps {
                 sh "echo 'Hello ${env.username}' > ${params.file}.${params.extension}"
                sh "echo ${params.content} > ${params.name}.${params.extension}"
             }
         }
 
-        stage('test') {
         stage('Update commits') {
             steps {
                 sh 'ls -al'
