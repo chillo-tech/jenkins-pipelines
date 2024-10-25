@@ -55,6 +55,7 @@ pipeline {
 
         stage('check') {
             steps {
+                sh "git remote set origin ${env.REPOSITORY}"
                 sh 'git push --set-upstream origin main'
             }
         }
