@@ -44,16 +44,8 @@ pipeline {
         }
 
         stage('Update commits') {
-            agent {
-                docker {
-                    image 'node:20-alpine'
-                }
-            }
             steps {
                 sh 'ls -al'
-                sh '''
-                    npm --version
-                '''
                 sh """
                     git config user.email ${env.EMAIL}
                     git config user.name ${env.USER_NAME}
