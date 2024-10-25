@@ -25,7 +25,10 @@ pipeline {
                 checkout (
                     $class: 'GitSCM',
                     branches: [[name: 'main']],
-                    userRemoteConfigs: [[url: env.REPOSITORY]]
+                    userRemoteConfigs: [[
+                        credentialsId: 'github-chillotech-pat',
+                        url: env.REPOSITORY
+                    ]]
                 )
 
                 sh "echo 'File ${params.name}'"
