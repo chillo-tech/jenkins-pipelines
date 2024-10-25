@@ -44,6 +44,11 @@ pipeline {
         }
 
         stage('Update commits') {
+            agent {
+                docker {
+                    image 'node:20-alpine'
+                }
+            }
             steps {
                 sh 'ls -al'
                 sh '''
