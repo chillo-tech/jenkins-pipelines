@@ -4,6 +4,7 @@ pipeline {
     environment {
         fileName = 'file.txt'
         username = 'Achille'
+        GIT_CREDENTIALS = credentials('github-chillotech-pat')
         GIT_CREDENTIALS_ID = 'github-chillotech-pat'
         REPOSITORY = 'https://github.com/chillo-tech/jenkins-pipelines.git'
         BRANCH = "main"
