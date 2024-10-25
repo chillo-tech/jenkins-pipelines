@@ -55,7 +55,7 @@ pipeline {
 
         stage('check') {
             steps {
-                sh 'ls -al'
+                sh 'git push'
             }
         }
     }
