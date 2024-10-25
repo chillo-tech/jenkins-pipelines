@@ -56,7 +56,6 @@ pipeline {
         stage('check') {
             steps {
                 withCredentials([gitUsernamePassword(credentialsId: 'github-chillotech-pat', gitToolName: 'Default')]) {
-                    sh "git remote add origin ${env.REPOSITORY}"
                     sh 'git push --set-upstream origin main'
                 }
             }
